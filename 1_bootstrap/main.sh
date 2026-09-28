@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-ENVIRONMENT="${1:?Usage: ./main.sh <environment>}"
+export ENVIRONMENT="${1:?Usage: ./main.sh <environment>}"
 
 source ./variables.sh
 
