@@ -27,7 +27,7 @@ az storage account update \
   --name "${STORAGE_ACCOUNT_NAME}" \
   --resource-group "${RESOURCE_GROUP_NAME}" \
   --subscription "${SUBSCRIPTION_ID}" \
-  --default-to-oauth-authentication true \
+  --set defaultToOAuthAuthentication=true \
   --allow-cross-tenant-replication false
 
 echo "Configuring blob service"
