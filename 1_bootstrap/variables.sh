@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-export ENVIRONMENT="dev"
 export SUBSCRIPTION_ID="4060f1e9-e5b0-4203-8db2-500f0922ccf7"
 
 export LOCATION="westeurope"

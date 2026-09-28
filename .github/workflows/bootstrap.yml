@@ -2,6 +2,15 @@ name: Bootstrap
 
 on:
   workflow_dispatch:
+    inputs:
+      environment:
+        description: Environment
+        required: true
+        type: choice
+        options:
+          - dev
+          - uat
+          - prod
 
 permissions:
   id-token: write
@@ -10,7 +19,7 @@ permissions:
 jobs:
   bootstrap:
     runs-on: ubuntu-latest
-    environment: dev
+    environment: ${{ inputs.environment }}
 
     steps:
       - name: Checkout
@@ -23,6 +32,6 @@ jobs:
           tenant-id: ${{ vars.AZURE_TENANT_ID }}
           subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
 
-      - name: Bootstrap Terraform backend
+      - name: Bootstrap
         working-directory: ./1_bootstrap
-        run: ./main.sh
+        run: ./main.sh "${{ inputs.environment }}"

@@ -12,8 +12,8 @@ terraform {
   }
 
   backend "azurerm" {
-    storage_account_name = "stterraformakbpweu001"
-    resource_group_name  = "rg-terraform-akbp-weu-001"
+    storage_account_name = "stcwpmigakbpdevweu001"
+    resource_group_name  = "rg-cwp-migration-akbp-dev-weu-001"
     container_name       = "networking"
     key                  = "terraform.tfstate-NETWORKING-HUB."
     use_azuread_auth     = true
