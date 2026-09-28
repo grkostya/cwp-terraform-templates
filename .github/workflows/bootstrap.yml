@@ -1,4 +1,4 @@
-name: Test Azure OIDC
+name: Bootstrap
 
 on:
   workflow_dispatch:
@@ -8,11 +8,14 @@ permissions:
   contents: read
 
 jobs:
-  test-azure-login:
+  bootstrap:
     runs-on: ubuntu-latest
     environment: dev
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Azure Login
         uses: azure/login@v2
         with:
@@ -20,5 +23,6 @@ jobs:
           tenant-id: ${{ vars.AZURE_TENANT_ID }}
           subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
 
-      - name: Check Azure account
-        run: az account show
+      - name: Bootstrap Terraform backend
+        working-directory: ./bootstrap
+        run: ./main.sh
