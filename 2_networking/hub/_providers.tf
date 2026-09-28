@@ -10,16 +10,8 @@ terraform {
       version = ">=0.13.0"
     }
   }
-
-  backend "azurerm" {
-    storage_account_name = "stcwpmigakbpdevweu001"
-    resource_group_name  = "rg-cwp-migration-akbp-dev-weu-001"
-    container_name       = "networking"
-    key                  = "terraform.tfstate-NETWORKING-HUB."
-    use_azuread_auth     = true
-  }
+  backend "azurerm" {} 
 }
-
 
 provider "azurerm" {
   features {
@@ -27,5 +19,5 @@ provider "azurerm" {
       prevent_deletion_if_contains_resources = true
     }
   }
-  subscription_id = local.subscription_id
+  subscription_id = var.subscription_id
 }

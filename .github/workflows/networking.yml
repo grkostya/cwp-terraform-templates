@@ -3,6 +3,13 @@ name: Networking
 on:
   workflow_dispatch:
     inputs:
+      stack:
+        description: Stack
+        required: true
+        type: choice
+        options:
+          - hub
+          - spoke
       environment:
         description: Environment
         required: true
@@ -36,4 +43,4 @@ jobs:
         working-directory: ./2_networking
         env:
           AZURE_SUBSCRIPTION_ID: ${{ vars.AZURE_SUBSCRIPTION_ID }}
-        run: ./main.sh "${{ inputs.environment }}"
+        run: ./main.sh "${{ inputs.stack }}" "${{ inputs.environment }}"
