@@ -7,7 +7,7 @@ echo "Creating resource group: ${RESOURCE_GROUP_NAME}"
 az group create \
   --name "${RESOURCE_GROUP_NAME}" \
   --location "${LOCATION}" \
-  --subscription "${SUBSCRIPTION_ID}" \
+  --subscription "${AZURE_SUBSCRIPTION_ID}" \
   --tags \
     Environment="${ENVIRONMENT}" \
     ManagedBy="AzureCLI" \

@@ -3,7 +3,6 @@
 set -euo pipefail
 
 export ENVIRONMENT="${1:?Usage: ./main.sh <environment>}"
-
 source ./variables.sh
 
 ./resource-group.sh

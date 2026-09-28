@@ -1,4 +1,4 @@
-name: Bootstrap
+name: Networking
 
 on:
   workflow_dispatch:
@@ -17,7 +17,7 @@ permissions:
   contents: read
 
 jobs:
-  bootstrap:
+  networking:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
 
@@ -32,8 +32,8 @@ jobs:
           tenant-id: ${{ vars.AZURE_TENANT_ID }}
           subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
 
-      - name: Bootstrap
-        working-directory: ./1_bootstrap
+      - name: Networking
+        working-directory: ./2_networking
         env:
-          AZURE_SUBSCRIPTION_ID: ${{ vars.AZURE_SUBSCRIPTION_ID }}        
+          AZURE_SUBSCRIPTION_ID: ${{ vars.AZURE_SUBSCRIPTION_ID }}
         run: ./main.sh "${{ inputs.environment }}"

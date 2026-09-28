@@ -7,7 +7,7 @@ echo "Creating storage account: ${STORAGE_ACCOUNT_NAME}"
 az storage account create \
   --name "${STORAGE_ACCOUNT_NAME}" \
   --resource-group "${RESOURCE_GROUP_NAME}" \
-  --subscription "${SUBSCRIPTION_ID}" \
+  --subscription "${AZURE_SUBSCRIPTION_ID}" \
   --location "${LOCATION}" \
   --sku Standard_ZRS \
   --kind StorageV2 \
@@ -26,7 +26,7 @@ echo "Configuring storage account"
 az storage account update \
   --name "${STORAGE_ACCOUNT_NAME}" \
   --resource-group "${RESOURCE_GROUP_NAME}" \
-  --subscription "${SUBSCRIPTION_ID}" \
+  --subscription "${AZURE_SUBSCRIPTION_ID}" \
   --set defaultToOAuthAuthentication=true \
   --allow-cross-tenant-replication false
 
@@ -35,7 +35,7 @@ echo "Configuring blob service"
 az storage account blob-service-properties update \
   --account-name "${STORAGE_ACCOUNT_NAME}" \
   --resource-group "${RESOURCE_GROUP_NAME}" \
-  --subscription "${SUBSCRIPTION_ID}" \
+  --subscription "${AZURE_SUBSCRIPTION_ID}" \
   --enable-versioning true \
   --enable-delete-retention true \
   --delete-retention-days 7 \
