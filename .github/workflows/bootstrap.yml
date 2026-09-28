@@ -24,5 +24,5 @@ jobs:
           subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
 
       - name: Bootstrap Terraform backend
-        working-directory: ./bootstrap
+        working-directory: ./1_bootstrap
         run: ./main.sh
